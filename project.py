@@ -11,4 +11,9 @@ df = df.drop(df.loc[(df['region'] == 'Sevastopol') | (df['region'] == 'Chechen R
 df['total_eth'] = 0.05 * df['beer'] + 0.13 * df['wine'] + 0.4 * df['vodka'] + 0.4 * df['brandy'] + 0.12 * df['champagne']
 df['total_litres'] = df['beer'] + df['wine'] + df['champagne'] + df['brandy'] + df['vodka']
 df''')
-
+df = pd.read_csv('russia_alcohol.csv')
+df = df.drop(df.loc[(df['region'] == 'Sevastopol') | (df['region'] == 'Chechen Republic') | (df['region'] == 'Republic of Crimea') | (df['region'] == 'Republic of Ingushetia')].index)
+df['total_eth'] = 0.05 * df['beer'] + 0.13 * df['wine'] + 0.4 * df['vodka'] + 0.4 * df['brandy'] + 0.12 * df['champagne']
+df['total_litres'] = df['beer'] + df['wine'] + df['champagne'] + df['brandy'] + df['vodka']
+if st.checkbox('Show dataframe'):
+   st.write(df)
