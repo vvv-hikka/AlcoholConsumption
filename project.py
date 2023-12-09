@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import plotly.express as plt
+import plotly.express as px
 
 st.title('Alcohol Consumption in Russia (1998 - 2016)')
 st.header('This dashboard will present the information about alcohol consumption in Russia between 1998 and 2016')
