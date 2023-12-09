@@ -25,8 +25,7 @@ st.text('vodka: the number of litres of vodka consumed in this year per person i
 st.text('champagne: the number of litres of champagne consumed in this year per person in this region')
 st.text('brandy: the number of litres of brandy consumed in this year per person in this region')
 st.header('Overview of the data')
-df.iloc[:, 1:].describe(include=[np.number])
-st.write(df)
+st.write(df.iloc[:, 1:].describe(include=[np.number]))
 mean_year = pd.DataFrame(
     [[year, df.loc[df['year'] == year]['wine'].mean(), df.loc[df['year'] == year]['beer'].mean(), df.loc[df['year'] == year]['vodka'].mean(), df.loc[df['year'] == year]['champagne'].mean(), df.loc[df['year'] == year]['brandy'].mean()] for year in range(1998, 2017)],
     columns = ['year', 'wine', 'beer', 'champagne', 'vodka', 'brandy']
