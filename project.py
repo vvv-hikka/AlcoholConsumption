@@ -32,4 +32,5 @@ mean_year = pd.DataFrame(
     columns = ['year', 'wine', 'beer', 'champagne', 'vodka', 'brandy']
 )
 mean_comparison_year = px.line(mean_year, x='year', y=['wine', 'beer', 'champagne', 'vodka', 'brandy'])
+st.header('Overall trends in alcohol consumption')
 st.plotly_chart(mean_comparison_year)
