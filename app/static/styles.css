@@ -1,0 +1,45 @@
+* {
+    height: max-content;
+}
+
+body {
+    height: max-content;
+    font-family: 'Courier New';
+    text-align: center;
+    background-color: white;
+}
+
+.table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+select {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #FFF8DC;
+}
+
+button:hover {
+    background-color: #F3E5AB;
+}
+
+footer {
+    position: fixed;
+    right: 1%;
+    bottom: 0;
+    font-size: 12px;
+}
