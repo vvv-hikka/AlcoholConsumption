@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Region statistic</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var selectedOption = sessionStorage.getItem('selectedOption');
+            if (selectedOption) {
+                document.getElementById('choice').value = selectedOption;
+            }
+        });
+
+        function saveSelectedOption() {
+            var selectedOption = document.getElementById('choice').value;
+            sessionStorage.setItem('selectedOption', selectedOption);
+        }
+    </script>
+</head>
+<body>
+    <h2>Want to learn more about alcohol consumption in your region?</h2>
+    <header>
+        <a href="/">Region statistic</a>
+        <a href="/second">Year statistic</a>
+    </header>
+    <hr>
+    <form action="/process" method="post">
+        <label for="choice">Choose your region</label>
+        <select name="regions" id="choice">
+            {% for option in regions %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    {% if img_line %}
+        <div>
+            <h3>This is the data on {{ selected_region }}:</h3>
+            <div class="table">{{ html_table | safe }}</div>
+            <h3>This is how alcohol consumption in {{ selected_region }} changed over the period</h3>
+            <img src="{{ img_line }}" alt="Graph">
+            <h3>This is average structure of alcohol consumption in {{ selected_region }}</h3>
+            <img src="{{ img_str }}" alt="Graph">
+            <h3>This is alcohol consumption in {{ selected_region }} compared to five most populated regions of Russia</h3>
+            <img src="{{ img_comp_time }}" alt="Graph">
+        </div>
+    {% endif %}
+    <footer>Veronika Sotova, 2023, died from cringe</footer>
+</body>
+</html>
