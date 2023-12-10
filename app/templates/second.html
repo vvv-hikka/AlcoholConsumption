@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Year statistic</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var selectedOption = sessionStorage.getItem('selectedOption');
+            if (selectedOption) {
+                document.getElementById('choice').value = selectedOption;
+            }
+        });
+
+        function saveSelectedOption() {
+            var selectedOption = document.getElementById('choice').value;
+            sessionStorage.setItem('selectedOption', selectedOption);
+        }
+    </script>
+</head>
+<body>
+    <h2>Want to learn more about the important year?</h2>
+    <header>
+        <a href="/">Region statistic</a>
+        <a href="/second">Year statistic</a>
+    </header>
+    <hr>
+    <form action="/second/process" method="post">
+        <label for="choice">Choose your region</label>
+        <select name="years" id="choice">
+            {% for option in years %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    {% if top_table %}
+        <div>
+            <h3>Top-10 regions by total pure alcohol (ethanol) consumption in {{ year }}</h3>
+            <div class="table">{{ top_table | safe }}</div>
+        </div>
+    {% endif %}
+</body>
+<foo></foo>
+</html>
