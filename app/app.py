@@ -4,6 +4,7 @@ import plotly.express as px
 import os
 import plotly
 import base64
+import gunicorn
 
 
 df = pd.read_csv('russia_alcohol.csv')
