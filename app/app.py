@@ -57,7 +57,7 @@ def average_structure(region, path_bar):
         )
         pie_fig = px.pie(one_region_str, values='count', names='drink')
         try:
-            pie_fig.write_image(path_bar, engine='orca')
+            pie_fig.write_image(path_bar, engine='kaleido')
         except Exception as e:
             print(f"Error saving image for {region}: {e}")
     with open(path_bar, 'rb') as img_file:
