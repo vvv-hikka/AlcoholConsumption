@@ -4,4 +4,3 @@ pandas
 plotly
 gunicorn
 flask
-base64
