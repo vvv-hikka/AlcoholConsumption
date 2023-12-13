@@ -39,7 +39,7 @@ def comparison_line(region, path_comp):
         comp_df = df.loc[(df['region'] == 'Moscow') | (df['region'] == 'Moscow Oblast') | (df['region'] == 'Krasnodar Krai') | (df['region'] == 'Saint Petersburg') | (df['region'] == 'Sverdlovsk Oblast') | (df['region'] == region)]
         comp_line = px.line(comp_df, x='year', y='total_eth', color='region')
         try:
-            comp_line.write_image(path_comp, engine='orca')
+            comp_line.write_image(path_comp,  engine='kaleido')
         except Exception as e:
             print(f"Error saving image for {region}: {e}")
     with open(path_comp, 'rb') as img_file:
@@ -71,7 +71,7 @@ def line_graph(region, path_line):
         one_region = df.loc[(df['region'] == region)]
         line_fig = px.line(one_region, x='year', y=['wine', 'beer', 'vodka', 'champagne', 'brandy'])
         try:
-            line_fig.write_image(path_line, engine='orca')
+            line_fig.write_image(path_line, engine='kaleido')
         except Exception as e:
             print(f"Error saving image for {region}: {e}")
     with open(path_line, 'rb') as img_file:
