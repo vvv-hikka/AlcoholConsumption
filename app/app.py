@@ -4,7 +4,6 @@ import plotly.express as px
 import os
 import plotly
 import base64
-import gunicorn
 
 
 df = pd.read_csv('russia_alcohol.csv')
@@ -22,11 +21,12 @@ def index():
 @app.route('/process', methods=['POST'])
 def start():
     region = request.form['regions']
-    if not os.path.exists('images'):
-        os.makedirs('images')
-    path_line = f'images/{region}_line.jpeg'
-    path_pie = f'images/{region}_pie.jpeg'
-    path_comp = f'images/{region}_comp.jpeg'
+    region_mod = ''.join(region.split())
+    if not os.path.exists('static/images'):
+        os.makedirs('static/images')
+    path_line = f'static/images/{region_mod}_line.jpeg'
+    path_pie = f'static/images/{region_mod}_pie.jpeg'
+    path_comp = f'static/images/{region_mod}_comp.jpeg'
     line_src = line_graph(region, path_line)
     table_src = table(region)
     av_str_src = average_structure(region, path_pie)
@@ -104,8 +104,8 @@ def s_start():
 
 
 if __name__ == '__main__':
-    if not os.path.exists('images'):
-        os.makedirs('images')
+    if not os.path.exists('static/images'):
+        os.makedirs('static/images')
 
     try:
         app.run(debug=True)
