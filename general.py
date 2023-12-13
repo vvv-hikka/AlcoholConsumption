@@ -17,7 +17,7 @@ import numpy as np''')
 st.header('Data Cleanup')
 st.code(r'''df = pd.read_csv('russia_alcohol.csv')
 df.info()''')
-df = pd.read_csv('russia_alcohol.csv
+df = pd.read_csv('russia_alcohol.csv')
 buffer = io.StringIO()
 df.info(buf=buffer)
 s = buffer.getvalue()
