@@ -15,4 +15,5 @@ import geopandas as gpd
 import numpy as np''')
 st.header('Data Cleanup')
 st.code(r'''df = pd.read_csv('russia_alcohol.csv')
-df.info''')
+df.info()''')
+st.write(st.info())
