@@ -5,4 +5,4 @@ project.py is the file, used for creating a streamlit page for this project, whi
 
 in final.ipynb you can find the overview and analysis of the dataset 
 
-in the folder app there is this project's web page. You can find some interesting facts about alcohol consumption in a particular region or year
+in the folder app there is this project's web page. You can find some interesting facts about alcohol consumption in a particular region or year. It can be also accessed by https://alcohol-consumption-8jg2.onrender.com/
